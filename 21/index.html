@@ -5,48 +5,52 @@
     <link href="./styles.css" rel="stylesheet" type="text/css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 21 Web Connection
-    </title>
+    <title>21 Web Connection</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
     <style>
         body {
-            font-family: 'Grandiflora One', sans-serif;
+            font-family: 'Pretendard', sans-serif;
             background-color: #d4e7f9;
             text-align: center;
-            color: #333;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
         }
         h1 {
-            color: #2b5797;
-            font-size: 100px;
+            color: #ff0000;
+            font-size: 50px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
         .highlight {
-            color: hsl(153, 100%, 35%);
-            font-size: 80px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: rgb(0, 0, 204);
+            font-size: 30px;
         }
         button {
             border: 2px solid #1a1aff;
-            background-color: #e6e6ff;
-            color: #000;
+            background-color: #ffffff;
+            color: #000000;
             padding: 15px;
             font-size: 20px;
             cursor: pointer;
-            border-radius: 5px;
-            text-shadow: 1px 1px 1px #ccc;
+            border-radius: 1px;
         }
         button:hover {
-            background-color: #d1d1ff;
-            border-color: #0000cc;
+            background-color: rgb(0, 0, 204);
+            border-color: rgb(0, 0, 204);
+            color: #ffffff;
         }
         .interactive-box {
+            text-align: center;
             margin: 20px;
             padding: 20px;
-            background: linear-gradient(135deg, #f2f2f2, #d9d9d9);
-            border: 2px solid #808080;
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            border: 1px solid rgb(0, 0, 204);
+            box-shadow: 0px 4px 15px rgba(4, 0, 255, 0.2);
         }
         .random-facts {
             font-size: 18px;
@@ -56,37 +60,31 @@
 </head>
 
 <body>
-    <h1>Connecting to 21 ... </h1>
-    <a href="https://sc21.cargo.site" font-size="20px"> Suhyeon Cho 21</a>
-    <h2 class="highlight"> Cut off...<br><br></h2>
-
+    <h1 id="main-heading">Connecting to <span id="highlight-21">21</span>...</h1>
+    <h5 class="highlight" font-size="30px">21 = Suhyeon Cho = @tide1h</h5>
+    <a href="https://sc21.cargo.site" font-size="100%">Suhyeon Cho 21</a>
+    <br><br>
+    <a href="https://zippy-faloodeh-cad9b6.netlify.app" font-size="30px">연주의 옷장</a>
+    <br><br>
     <h3>2025년 1월 11일, 12시부터 시작된 가벼운 이사</h3>
-    <p> 크림 베이컨 파스타를 먹고 기분이 좋아졌으니, 제가 21가지 레시피를 알려드릴게요.</p>
+    <p> 베이컨 크림 파스타를 먹고 기분이 좋아졌으니, 제가 21가지 메뉴를 추천해드릴게요</p>
 
-    <button onClick="location.href='images.html'">
-        눌러보세용
-    </button>
+    <button onClick="location.href='images.html'">21 점메추</button>
+    <br><br><br><br>
 
     <div class="interactive-box">
-        <p>오늘의 질문:</p>
-        <form action="#">
-            이 21씨를 찾은 날짜는 언제인가요?<br>
-            <input type="datetime-local" name="found-date">
-            <input type="submit" value="기록하기">
-        </form>
-
-        <form action="#">
+        <h3>당신만의 21씨 찾기</h3>
+        <form onsubmit="changeHighlightColor(event)">
             여러분이 가장 좋아하는 색깔을 골라보세요.<br>
-            <input type="color" name="favorite-color" value="#00ff00">
+            <input type="color" id="color-picker" name="favorite-color" value="#00ff00">
             <input type="submit" value="저장하기">
         </form>
     </div>
 
-    <!-- 새로운 인터랙티브 요소 추가 -->
     <div class="interactive-box">
         <h3>랜덤 21 퀴즈</h3>
         <p class="random-facts" id="fact">이 버튼을 눌러 재미있는 21 사실을 확인하세요!</p>
-        <button onclick="showRandomFact()">보기 </button>
+        <button onclick="showRandomFact()">보기</button>
     </div>
 
     <script>
@@ -94,22 +92,35 @@
             "21은 대수학의 매혹적인 숫자 중 하나입니다!",
             "21은 블랙잭 게임에서 마법의 숫자입니다.",
             "병뚜껑의 돌기의 개수는 21입니다.",
-            "산소는 공기 중의 약 21퍼센트입니다.",
             "직육면체 주사위의 모든 눈의 합은 21입니다.",
+            "2002월드컵 4강 신화 박지성의 등번호는 21번입니다.",
+            "산소는 공기 중의 약 21퍼센트입니다.",
+            "제 이름은 Suhyeon Cho, SC. 놀랍게도 스칸듐(Sc)의 원자번호는 21입니다.",
             "의사 던칼 맥두걸이 1907년에 진행한 실험의 결과 사람이 죽을 때 빠져나가는 무게는 21g입니다."
         ];
+        let lastFactIndex = -1;
 
         function showRandomFact() {
             const factElement = document.getElementById('fact');
-            const randomIndex = Math.floor(Math.random() * facts.length);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * facts.length);
+            } while (randomIndex === lastFactIndex);
+
+            lastFactIndex = randomIndex;
             factElement.textContent = facts[randomIndex];
+        }
+
+        function changeHighlightColor(event) {
+            event.preventDefault();
+            const color = document.getElementById('color-picker').value;
+            document.getElementById('highlight-21').style.color = color;
         }
     </script>
 
     <div class="interactive-box">
-        <h3>움직이는 21</h3>
+        <h3>도전! 움직이는 21 술래잡기</h3>
         <button onClick="location.href='game.html'">게임으로 이동</button>
     </div>
 </body>
-
 </html>
