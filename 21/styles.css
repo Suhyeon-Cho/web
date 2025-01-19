@@ -1,34 +1,44 @@
-.grandiflora-one-regular {
-    font-family: "Grandiflora One", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+body {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #d4e7f9;
+  text-align: center;
+  color: #000000;
+  display: flex column ;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
 
-  .aqua {
-    background-color: aqua;}
+h1 {
+  font-size: 80px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
 
-  .images{
-    width: 300px;
-  }
+h4 {
+  color: hsl(153, 100%, 35%);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-  .color {width: 2000px}
+.interactive-box {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 0;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  width: 80%;
+}
 
+.images {
+  width: 150px;
+  margin: 10px;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
 
-  a {
-    background-color: powderblue;
-    transition: background-color 0.5s;
-  }
-  
-  a:hover {
-    background-color: gold;
-  }
-
-color: var(--Color-2, #000);
-font-variant-numeric: lining-nums tabular-nums ordinal;
-font-feature-settings: 'case' on, 'dlig' on, 'ss03' on, 'ss05' on, 'cv10' on;
-font-family: "Averia Serif Libre";
-font-size: 166px;
-font-style: italic;
-font-weight: 400;
-line-height: 34px; /* 20.482% */
-letter-spacing: -13.28px;
+.images:hover {
+  border: 3px solid #0078D4;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+  transform: scale(1.1);
+}
